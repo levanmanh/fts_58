@@ -30,7 +30,8 @@ en:
     name: "Signup"  
   shared: 
     content: "Content"
-    error: "Error"  
+    error: "Error"
+    isadmin?: "Are you admin?"
   season:
     login: "Login" 
     error: "Error"
@@ -43,3 +44,9 @@ en:
     logout: "Logout"
     login: "Login"
     success_message: "Success!"
+  controller:  
+    subject:
+      create: "Create Subject"  
+      create_success: "Create Subject Success"
+      create_error: "Create Subject Error"
+      name: "Subject"
