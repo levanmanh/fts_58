@@ -23,3 +23,11 @@ en:
   pages:
     my_web: "My Web"
     home: "Home"
+  user:
+    create: "Create"
+    name: "User"
+  signup:
+    name: "Signup"  
+  shared: 
+    content: "Content"
+    error: "Error"  
