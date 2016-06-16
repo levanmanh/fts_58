@@ -31,3 +31,15 @@ en:
   shared: 
     content: "Content"
     error: "Error"  
+  season:
+    login: "Login" 
+    error: "Error"
+    signup_now: "Signup now"
+    account: "Account"
+  layouts:
+    user: "User" 
+    profile: "Profile" 
+    setting: "Settings" 
+    logout: "Logout"
+    login: "Login"
+    success_message: "Success!"
