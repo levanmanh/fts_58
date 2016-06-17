@@ -50,3 +50,8 @@ en:
       create_success: "Create Subject Success"
       create_error: "Create Subject Error"
       name: "Subject"
+      error: "Error"  
+  controller:
+    question:
+      content: "Content" 
+      create: "Create Question" 

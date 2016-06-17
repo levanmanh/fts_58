@@ -1,0 +1,9 @@
+<div class="input-group fields">
+  <%= f.text_field :content, placeholder: t("controller.question.content"),
+    class: "answer_field form-control" %>
+  <%= f.check_box :is_correct, class: "correct" %>
+    <%= f.label :correct_option %>
+  <span class="input-group-addon">
+    <%= link_to_remove_fields f %>
+  </span>
+</div>
