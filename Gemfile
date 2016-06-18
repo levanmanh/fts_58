@@ -17,3 +17,5 @@ group :development do
   gem "byebug"
   gem "sqlite3"
 end
+
+gem "config"

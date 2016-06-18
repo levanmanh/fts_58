@@ -37,26 +37,25 @@ ActiveRecord::Schema.define(version: 20160616045647) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
-    t.integer  "type"
+    t.integer  "question_type"
     t.integer  "state"
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "results", force: :cascade do |t|
+    t.integer  "answer_id"
     t.integer  "lesson_id"
     t.integer  "question_id"
-    t.integer  "answer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
   add_index "results", ["lesson_id"], name: "index_results_on_lesson_id"
   add_index "results", ["question_id"], name: "index_results_on_question_id"
 
