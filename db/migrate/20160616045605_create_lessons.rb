@@ -3,6 +3,9 @@ class CreateLessons < ActiveRecord::Migration
     create_table :lessons do |t|
       t.integer :status
       t.integer :point
+      t.integer :subject_id
+      t.integer :user_id
+
       t.references :user, index: true, foreign_key: true
       t.references :subject, index: true, foreign_key: true
 

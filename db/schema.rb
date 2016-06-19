@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20160616045647) do
   create_table "lessons", force: :cascade do |t|
     t.integer  "status"
     t.integer  "point"
-    t.integer  "user_id"
     t.integer  "subject_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160616045647) do
     t.string   "content"
     t.integer  "question_type"
     t.integer  "state"
-    t.integer  "user_id"
     t.integer  "subject_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -50,10 +50,11 @@ ActiveRecord::Schema.define(version: 20160616045647) do
 
   create_table "results", force: :cascade do |t|
     t.integer  "answer_id"
-    t.integer  "lesson_id"
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "lesson_id"
+    t.string   "answer",      default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "results", ["lesson_id"], name: "index_results_on_lesson_id"

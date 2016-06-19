@@ -4,6 +4,9 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :content
       t.integer :question_type
       t.integer :state
+      t.integer :subject_id
+      t.integer :user_id
+      
       t.references :user, index: true, foreign_key: true
       t.references :subject, index: true, foreign_key: true
 

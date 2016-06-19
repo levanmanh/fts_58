@@ -55,3 +55,14 @@ en:
     question:
       content: "Content" 
       create: "Create Question" 
+  views: 
+    lesson:
+      subject: "Subject"  
+      create: "Create Lesson"
+      status: "Status"
+      duration: "Duration" 
+      number_question: "Number Question"
+      point: " Point" 
+      start: "Start"
+      create_success: "Create Lesson Success!"
+      create_error: "Create Lesson Error!"
