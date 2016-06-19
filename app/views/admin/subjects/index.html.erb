@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-10 col-offset-2">
+    <h2><%= t "controller.subject.list_subject" %></h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <th><%= t "controller.subject.name" %></th>
+        <th><%= t "controller.subject.number_question" %></th>
+        <th><%= t "controller.subject.duration" %></th>
+        <th><%= t "controller.subject.update_subject" %></th>
+        <th><%= t "controller.subject.delete_subject" %></th>
+      </thead>
+      <tbody>
+        <% @subjects.each do |subject| %>
+          <tr>
+            <td><%= subject.name %></td>
+            <td><%= subject.number_question %></td>
+            <td><%= subject.duration %></td>
+            <td>
+              <%= link_to [:edit,:admin, subject], class: "btn btn-primary btn-xs" do %>
+                <span class="glyphicon glyphicon-eye-open"></span>
+                  <%= t "controller.subject.update_subject" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to [:admin, subject], method: :delete,
+                data: { confirm: t("controller.subject.sure") }, class: "btn btn-primary
+                  btn-xs" do %><span class="glyphicon glyphicon-eye-open"></span>
+                  <%= t "controller.subject.delete_subject" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

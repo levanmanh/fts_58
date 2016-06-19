@@ -1,12 +1,20 @@
 class Admin::SubjectsController < ApplicationController
   before_action :logged_in_user, :require_admin
+  before_action :load_subjects, except: [:new, :index, :create]
+
 
   def index
-    @subjects = Subject.paginate page: params[:page]
+    @subjects = Subject.all
   end
 
   def new
     @subject = Subject.new
+  end
+
+  def show
+  end
+
+  def edit
   end
 
   def create
@@ -20,8 +28,29 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "controller.subject.update_success"
+      redirect_to admin_subjects_path
+    else
+      flash[:danger] = t "controller.subject.update_error"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "controller.subject.destroy_success"
+      redirect_to admin_subjects_path
+    end
+  end
+
   private
   def subject_params
     params.require(:subject).permit :name, :number_question, :duration
+  end
+
+  def load_subjects
+    @subject = Subject.find params[:id]
   end
 end
