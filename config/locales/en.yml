@@ -51,7 +51,18 @@ en:
       create_error: "Create Subject Error"
       name: "Subject"
       error: "Error"  
-  controller:
     question:
       content: "Content" 
       create: "Create Question" 
+    lesson:
+      create_success: "Create Lesson Success!" 
+      create_error: "Create Lesson Error!" 
+      create: "Create Lesson"
+      list: "List Lesson"
+      date: "Date"
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration"
+      number_question: "Number Question"
+      spend_time: "Spend Time"
+      point: "Point"

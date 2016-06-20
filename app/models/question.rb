@@ -10,4 +10,6 @@ class Question < ActiveRecord::Base
     allow_destroy: true
 
   enum question_type: [:single, :multiple]  
+
+  scope :accepted, -> {where status: "accepted"}
 end

@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <%= form_for @lesson do |f| %>
+      <div class="col-md-4">
+        <%= f.collection_select :subject_id, @subjects, :id, :name, {},
+          class: "form-control" %>
+        <%= f.hidden_field :duration, value: 20 %>
+        <%= f.hidden_field :status, value: :start %>
+      </div>
+      <div class="col-md-3">
+        <%= f.submit t("controller.lesson.create"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="row">
+    <h3><%= "controller.lesson.list" %></h3>
+    <table class="table table-condensed">
+      <tr>
+        <td><%= t "controller.lesson.date" %></td>
+        <td><%= t "controller.lesson.subject" %></td>
+        <td><%= t "controller.lesson.status" %></td>
+        <td><%= t "controller.lesson.duration" %></td>
+        <td><%= t "controller.lesson.number_question" %></td>
+        <td><%= t "controller.lesson.spend_time" %></td>
+        <td><%= t "controller.lesson.point" %></td>
+        <td></td>
+      </tr>
+      <% @lessons.each do |lesson| %>
+        <tr>
+          <td><%= lesson.created_at %></td>
+          <td><%= lesson.subject.name %></td>
+          <td>
+            <% if lesson.start? %>
+              <span class="label label-primary"><%= lesson.status %></span>
+            <% elsif lesson.testing? %>
+              <span class="label label-warning"><%= lesson.status %></span>
+            <% else %>
+              <span class="label label-info"><%= lesson.status %></span>
+            <% end %>
+          </td>
+          <td><%= lesson.subject.duration %></td>
+          <td><%= lesson.subject.number_question %></td>
+          <td>
+            
+          </td>
+          <td>
+            <% if lesson.start? or lesson.checking? %>
+              --
+            <% else lesson.testing? %>
+              --
+            <% end %>
+          </td>
+          <td>
+            <%= link_to lesson.start? ? t("controller.lesson.start") : t("controller.lesson.view"), lesson, class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
