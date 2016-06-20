@@ -69,3 +69,13 @@ en:
       update_error: "Update Question Error!"
       delete_success: "Delete Question Success!"
       delete_error: "Delete Question Error!"
+    lesson: 
+      create: "Create Lesson"   
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration"
+      number_question: "Number Question"
+      point: "Point" 
+      start: "Start"  
+      create_success: "Create Lesson Success"
+      create_error: "Create Lesson Error"

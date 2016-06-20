@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :questions
-
+  resources :lessons, except: [:new, :edit, :destroy]
+  
   namespace :admin do
     resources :subjects, only: [:new, :create]
     resources :questions, only: [:new, :create]
