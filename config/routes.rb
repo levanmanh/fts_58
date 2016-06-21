@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
-  resources :users, only: [:new, :create]
   resources :questions
+  resources :users, except: [:index, :destroy]
 
   namespace :admin do
+    resources :users, only: [:show, :destroy]
     resources :subjects, only: [:new, :create]
     resources :questions, only: [:new, :create]
   end
