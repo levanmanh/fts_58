@@ -3,7 +3,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_subjects
 
   def index
-    @questions = Question.paginate page: params[:page]
+    @questions = Question.all
   end
 
   def new
