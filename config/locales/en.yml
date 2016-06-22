@@ -36,6 +36,8 @@ en:
     destroy_success: "Delete Success!"
     destroy_error: "Delete Error!"
     edit: "Edit User"
+    destroy_user: "Delete User"
+    sure: "Are you sure?"
   signup:
     name: "Signup"  
   shared: 
