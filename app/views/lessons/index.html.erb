@@ -1,4 +1,10 @@
 <div class="col-md-12.col-md-offset-0">
+  <%= form_for :lesson, html: {class: "form-inline"} do |f| %>
+    <%= f.collection_select :subject_id, @subjects, :id, :name, {},
+      class: "form-control" %>
+    <%= f.submit t("controller.lesson.create"), class: "btn btn-primary" %>
+  <% end %>
+  <hr>
   <table class="table table-striped table-hover table-style">
     <thead>
       <th class="th-style"><p><%= t "controller.lesson.subject" %></p></th>
