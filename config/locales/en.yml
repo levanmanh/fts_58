@@ -89,3 +89,13 @@ en:
       delete_error: "Delete Question Error!"
       sure: "Are you sure?"
       delete_question: "Delete Question"
+    lesson: 
+      create: "Create Lesson"   
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration"
+      number_question: "Number Question"
+      point: "Point" 
+      start: "Start"  
+      create_success: "Create Lesson Success"
+      create_error: "Create Lesson Error"  
