@@ -1,6 +1,7 @@
 class Admin::SubjectsController < ApplicationController
   before_action :logged_in_user, :require_admin
   before_action :load_subjects, except: [:new, :index, :create]
+  before_action :load_lesson, only: :show
 
 
   def index
@@ -12,6 +13,7 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
+    @lessons = @subject.lessons
   end
 
   def edit
@@ -48,6 +50,10 @@ class Admin::SubjectsController < ApplicationController
   private
   def subject_params
     params.require(:subject).permit :name, :number_question, :duration
+  end
+
+  def load_lesson
+    @subject = Subject.find_by id: params[:id]
   end
 
   def load_subjects
