@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20160616045647) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "status"
+    t.integer  "status",     default: 0
     t.integer  "point"
-    t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "lessons", ["subject_id"], name: "index_lessons_on_subject_id"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160616045647) do
     t.string   "content"
     t.integer  "question_type"
     t.integer  "state"
-    t.integer  "user_id"
     t.integer  "subject_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

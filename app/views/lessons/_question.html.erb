@@ -1,7 +1,10 @@
 <div class="row">
   <li><strong><%= f.object.question.content %></strong></li>
-  <% f.object.question.answers.each do |answer| %>
-    <%= f.radio_button :answer_id, answer.id %>
-    <%= answer.content %></br>
+  <% if f.object.question.single? %>
+    <% f.object.question.answers.each do |answer| %>
+      <%= f.radio_button :answer_id, answer.id,
+        disabled: !(f.object.lesson.start? || f.object.lesson.testing?) %>
+      <%= answer.content %></br>
+    <% end %>
   <% end %>
 </div>

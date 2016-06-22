@@ -9,6 +9,15 @@ class Lesson < ActiveRecord::Base
 
   after_create :get_questions
 
+  enum status: [:start, :testing, :unchecked, :checked]
+
+  def change_status_lesson
+    if self.start?
+      self.status = :testing
+      self.save
+    end
+  end
+
   private
   def get_questions
     self.questions << self.subject.questions.order("RANDOM()")
