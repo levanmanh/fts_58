@@ -25,6 +25,7 @@ class LessonsController < ApplicationController
   end
 
   def update
+    @lesson.status = :unchecked if params[:commit] == Settings.finish
     if @lesson.update_attributes lesson_params
       flash[:success] = t "controller.lesson.update_success"
     else
