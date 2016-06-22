@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:show, :destroy]
-    resources :subjects
-    resources :questions, only: [:new, :create]
+    resources :subjects, only: [:new, :create]
+    resources :questions
   end
 end

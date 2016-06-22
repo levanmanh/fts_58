@@ -87,3 +87,5 @@ en:
       update_error: "Update Question Error!"
       delete_success: "Delete Question Success!"
       delete_error: "Delete Question Error!"
+      sure: "Are you sure?"
+      delete_question: "Delete Question"

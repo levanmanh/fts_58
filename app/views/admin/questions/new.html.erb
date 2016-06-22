@@ -1,24 +1,7 @@
-<%= form_for [:admin, @question] do |f| %>
-  <%= render "shared/error_messages", object: @question %>
-
-  <%= f.label :subject %>
-  <%= f.select :subject_id,
-    @subjects.collect {|subject| [subject.name, subject.id]},
-    {include_blank: false}, {class: "form-control"} %>
-
-  <%= f.label :content %>
-  <%= f.text_field :content, class: "form-control" %>
-
-  <%= f.select(:question_type, Settings.question_type) %></br>
-
-  <%= f.label :answers %>
-  <%= f.fields_for :answers do |builder| %>
-    <%= render "answer_fields", f: builder %>
-  <% end %>
-  
-  <p>
-    <%= link_to_add_fields f, :answers %>
-  </p>
-  
-  <%= f.submit t("controller.question.create"), class: "btn btn-primary" %>
-<% end %>
+<% provide :title, t("controller.question.name") %>
+<div class="row">
+  <div class="col-md-6">
+    <h2><%= t "controller.question.create" %></h2>
+    <%= render "form" %>
+  </div>
+</div>
