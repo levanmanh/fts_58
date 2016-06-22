@@ -4,7 +4,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_question, except: [:new, :create]
 
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page])
   end
 
   def new

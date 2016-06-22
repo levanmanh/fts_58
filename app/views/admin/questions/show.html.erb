@@ -1,0 +1,17 @@
+<div class="col-xs-12 col-sm-8">
+  <div class="tt-course">
+    <div class="tt-course-summary">
+      <h4><%= @question.content %></h4>
+    </div>
+    <div class="tt-question">
+      <p><%= t "admin.list_answer_in_question" %></p>
+      <% @question.answers.each do |answer| %>
+        <div class="media">
+          <div class="media-body">
+            <h6 class="media-heading"><%= answer.content %></h6>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
