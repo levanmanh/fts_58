@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user
   before_action :load_subjects, only: [:index, :create]
+  before_action :load_lesson, only: [:show]
 
   def index
     @lesson = Lesson.new
@@ -25,5 +26,9 @@ class LessonsController < ApplicationController
 
   def load_subjects
     @subjects = Subject.all
+  end
+
+  def load_lesson
+    @lesson = Lesson.find_by id: params[:id]
   end
 end

@@ -1,0 +1,7 @@
+<div class="row">
+  <li><strong><%= f.object.question.content %></strong></li>
+  <% f.object.question.answers.each do |answer| %>
+    <%= f.radio_button :answer_id, answer.id %>
+    <%= answer.content %></br>
+  <% end %>
+</div>

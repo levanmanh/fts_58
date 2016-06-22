@@ -1,0 +1,11 @@
+<div class="col-md-8 col-md-offset-1">
+  <h1 class="text-center" ><%= @lesson.subject.name %></h1>
+  <hr/>
+  <%= form_for @lesson, html: {id: "submit-lesson"} do |f| %>
+    <ol>
+      <%= f.fields_for :results do |result| %>
+        <%= render "question", f: result %>
+      <% end %>
+    </ol>
+  <% end %>
+</div>

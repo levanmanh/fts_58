@@ -21,6 +21,9 @@
           <td class="td_style"><%= lesson.subject.duration %></td>
           <td class="td_style"><%= lesson.subject.number_question %></td>
           <td class="td_style"><%= lesson.point %></td>
+          <td class="td_style">
+            <%= link_to t("controller.subject.start"), lesson_path(lesson) %>
+          </td>
         </tr>
       <% end %>
     </tbody>
