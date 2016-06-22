@@ -49,6 +49,7 @@ en:
     error: "Error"
     signup_now: "Signup now"
     account: "Account"
+    new_user: "New User?"
   layouts:
     user: "User" 
     profile: "Profile" 
@@ -75,6 +76,7 @@ en:
       start: "Start"
       stt: "STT"
       created_at: "Created at"
+      question: "Question - "
     question:
       name: "Question"
       update_question: "Update Question"

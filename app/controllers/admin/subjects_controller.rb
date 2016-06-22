@@ -5,7 +5,7 @@ class Admin::SubjectsController < ApplicationController
 
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.paginate(page: params[:page])
   end
 
   def new

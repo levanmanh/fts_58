@@ -4,7 +4,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_question, except: [:new, :create]
 
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page])
   end
 
   def new
@@ -21,7 +21,7 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.new question_params
     if @question.save
       flash[:success] = t "controller.question.create_success"
-      redirect_to new_admin_question_path
+      redirect_to admin_questions_path
     else
       flash[:danger] = t "controller.question.create_error"
       render :new
