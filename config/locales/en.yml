@@ -71,6 +71,10 @@ en:
       update_subject: "Update Subject"
       delete_subject: "Delete Subject"
       list_subject: "List Subject" 
+      edit: "Edit"
+      start: "Start"
+      stt: "STT"
+      created_at: "Created at"
     question:
       name: "Question"
       update_question: "Update Question"

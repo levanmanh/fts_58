@@ -17,6 +17,12 @@ class Lesson < ActiveRecord::Base
       self.save
     end
   end
+  
+  def get_point lesson_id
+    @point = Answer.is_correct_answers(lesson_id).count
+    @number_question = Lesson.find_by(id: lesson_id).subject.number_question
+    return @point, @number_question
+  end
 
   private
   def get_questions
