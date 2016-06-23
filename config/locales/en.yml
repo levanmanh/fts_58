@@ -49,8 +49,13 @@ en:
     error: "Error"
     signup_now: "Signup now"
     account: "Account"
+    new_user: "New User? "
   layouts:
     user: "User" 
+    questions: "Questions"
+    lessons: "Lessons"
+    subjects: "Subjects"
+    suggest_question: "Suggest Question"
     profile: "Profile" 
     setting: "Settings" 
     logout: "Logout"
