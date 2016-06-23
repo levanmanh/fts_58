@@ -1,7 +1,43 @@
-<% provide :title, t("static_pages.course") %>
+<% provide :title, t("layouts.edit") %>
 <div class="row">
   <div class="col-md-6">
     <h2><%= t "controller.question.update" %></h2>
-    <%= render "form" %>
+
+    <%= form_for [:admin, @question] do |f| %>
+      <%= render "shared/error_messages", object: @question %>
+
+      <%= f.hidden_field :approved, value: "approved" %>
+
+      <%= f.label :subject %>
+      <%= f.select :subject_id,
+        @subjects.collect {|subject| [subject.name, subject.id]},
+        {include_blank: false}, {class: "form-control"} %>
+
+      <%= f.label :content %>
+      <%= f.text_field :content, class: "form-control" %>
+
+      <%= f.select :question_type, Settings.question_type %></br>
+
+      <%= f.label :answers %>
+      <%= f.fields_for :answers do |builder| %>
+        <%= render "answer_fields", f: builder %>
+      <% end %>
+      
+      <p>
+        <%= link_to_add_fields f, :answers %>
+      </p>
+  
+      <%= f.submit class: "btn btn-primary" %>
+
+      <% if @question.new_record? %>
+        <%= f.submit :update, class: "btn btn-primary state_question" %>
+      <% else %>
+        <%= f.submit :approve, class: "btn btn-primary",
+          id: "approve" %>
+        <%= f.submit :unapprove, class: "btn btn-primary",
+          id: "unapprove" %>
+      <% end %>
+    <% end %>
+
   </div>
 </div>

@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :content
       t.integer :question_type
-      t.integer :state
+      t.integer :state, default: 0
       t.integer :subject_id
       t.integer :user_id
 
