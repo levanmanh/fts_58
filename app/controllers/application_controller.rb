@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in_user
     unless logged_in?
-      flash[:danger] = t "layouts.login_message"
+      flash[:danger] = t "layouts.login"
       redirect_to login_url
     end
   end

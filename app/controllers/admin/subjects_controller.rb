@@ -5,7 +5,7 @@ class Admin::SubjectsController < ApplicationController
 
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.paginate page: params[:page]
   end
 
   def new
@@ -22,8 +22,8 @@ class Admin::SubjectsController < ApplicationController
   def create
     @subject = Subject.new subject_params
     if @subject.save
-      flash[:success] = t "controller.subject.create_success"
       redirect_to admin_subjects_path
+      flash[:success] = t "controller.subject.create_success"
     else
       flash[:danger] = t "controller.subject.create_error"
       render :new
