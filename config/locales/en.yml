@@ -61,6 +61,7 @@ en:
     logout: "Logout"
     login: "Login"
     success_message: "Success!"
+    edit: "Edit"
   controller:  
     subject:
       create: "Create Subject"  
@@ -100,6 +101,9 @@ en:
       delete_error: "Delete Question Error!"
       sure: "Are you sure?"
       delete_question: "Delete Question"
+      state: "State"
+      created_at: "Creat At"
+      message: "No Thing"
     lesson: 
       create: "Create Lesson"   
       subject: "Subject"
@@ -109,4 +113,5 @@ en:
       point: "Point" 
       start: "Start"  
       create_success: "Create Lesson Success"
-      create_error: "Create Lesson Error"  
+      create_error: "Create Lesson Error" 
+      created_at: "Created At" 

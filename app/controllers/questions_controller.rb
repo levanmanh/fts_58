@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :load_question, except: [:index, :new, :create]
 
   def index
-    @questions = Question.all
+    @questions = Question.order(created_at: :desc).of_user current_user.id
   end
 
   def new
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit :content, :question_type, :subject_id,
+    params.require(:question).permit :user_id, :content, :question_type, :subject_id,
       :state, answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 

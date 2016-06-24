@@ -43,3 +43,13 @@ $(document).ready(function(){
     $('.status_question').val("checked")
   });
 });
+
+$(document).on('page:load', function () {
+  if($('#add_index').length)
+  {
+    get_questions();
+  }
+  $('#lesson_subject_id').on('change', function() {
+    get_questions();
+  });
+})

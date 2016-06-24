@@ -15,9 +15,11 @@
     <%= render "answer_fields", f: builder %>
   <% end %>
   
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <p>
     <%= link_to_add_fields f, :answers %>
   </p>
-  
-  <%= f.submit t("controller.question.create"), class: "btn btn-primary" %>
+  <% if @question.checking? %>
+    <%= f.submit t("controller.question.update"), class: "btn btn-primary" %>
+  <% end %>
 <% end %>

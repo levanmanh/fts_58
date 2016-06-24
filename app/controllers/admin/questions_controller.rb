@@ -4,7 +4,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_question, except: [:new, :create]
 
   def index
-    @questions = Question.paginate page: params[:page]
+    @questions = Question.order(created_at: :desc).paginate page: params[:page]
   end
 
   def new
@@ -29,12 +29,22 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update_attributes question_params
+    if params[:commit] == "approve"
+      @question.approve!
+      flash[:success] = t "controller.question.update_success"
+      redirect_to admin_questions_path
+    elsif params[:commit] == "unapprove"
+      @question.unapprove!
       flash[:success] = t "controller.question.update_success"
       redirect_to admin_questions_path
     else
-      flash[:danger] = t "controller.question.update_error"
-      render :edit
+      if @question.update_attributes question_params
+        flash[:success] = t "controller.question.update_success"
+        redirect_to admin_questions_path
+      else
+        flash[:danger] = t "controller.question.update_error"
+        render :edit
+      end 
     end
   end
 
