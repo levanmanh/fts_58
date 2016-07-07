@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :questions
-  resources :users, except: [:index, :destroy]
   resources :lessons
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
 
   namespace :admin do
     resources :users
